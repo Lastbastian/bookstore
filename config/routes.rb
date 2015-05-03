@@ -59,6 +59,10 @@ Rails.application.routes.draw do
 
   root 'books#index'
 
-  resources :books, :authors, :catetories, :publishers
+  get 'about' => 'about#index'
+
+
+
+  resources :books, :authors, :catetories, :publishers, :categories
 
 end
