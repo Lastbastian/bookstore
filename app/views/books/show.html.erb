@@ -1,22 +1,22 @@
 <div id="books-show">
-  <h2>Ruby on Rails Power</h2>
+  <h2><%= @book.title %></h2>
   <div class="books-show-left">
-    <%= image_tag('covers/ruby_on_rails_power.jpg') %>
+    <%= image_tag(@book.coverpath) %>
   </div>
   <div class="books-show-right">
     <h3>Book info:</h3>
       <ul>
-        <li><strong>Category: </strong> Ruby on Rails</li>
-        <li><strong>Author:</strong> Aneesha Bakharia</li>
-        <li><strong>Publisher: </strong> Course Technology PTR</li>
-        <li><strong>Year: </strong> 2007</li>
-        <li><strong>ISBN: </strong> 16394876</li>
-        <li><strong>Format:</strong> Paperback</li>
-        <li><strong>Pages: </strong>678</li>
+        <li><strong>Category: </strong><%= @book.category.name %></li>
+        <li><strong>Author: </strong><%= @book.author.first_name %> <%= @book.author.last_name %></li>
+        <li><strong>Publisher: </strong><%= @book.publisher.name %></li>
+        <li><strong>Year: </strong><%= @book.year %></li>
+        <li><strong>ISBN: </strong><%= @book.isbn %></li>
+        <li><strong>Format:</strong><%= @book.format %></li>
+        <li><strong>Pages: </strong><%= @book.pages %></li>
       </ul>
-      <%= link_to "Buy for $5.47", 'http://www.amazon.com/Ruby-Rails-Power-Comprehensive-Guide/dp/1598632167', class:'btn btn-success', target:'_blank' %>
+      <%= link_to "Buy for $" + @book.price, @book.buy, class:'btn btn-success', target:'_blank' -%>
   </div>
   <div class-"clearfix"></div>
   <h4>Excerpt:</h4>
-  <p>Ruby on Rails is a feature-rich, easy to learn, and powerful web application framework that makes creating sophisticated, full featured web applications a snap. With the intuitive, straightforward nature of Ruby and the development platform provided by Rails, anyone can put together full-fledged web applications quickly, even if they're new to web programming.</p>
+  <p><%= @book.excerpt %></p>
 </div>
